@@ -4,7 +4,7 @@ import {Row, Col, Image, ListGroup, Button, Card} from 'react-bootstrap';
 import Rating from '../components/Rating'
 
 /**
- * 
+ *  
  * @param {*} param0 
  * @returns 
  */
