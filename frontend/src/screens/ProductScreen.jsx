@@ -1,7 +1,9 @@
-import React from 'react'
+import React, {useEffect, useState}from 'react'
 import {Link} from 'react-router-dom'
 import {Row, Col, Image, ListGroup, Button, Card} from 'react-bootstrap';
 import Rating from '../components/Rating'
+import axios from 'axios'
+import URL from '../contants/api.constants';
 
 /**
  *  
@@ -9,7 +11,14 @@ import Rating from '../components/Rating'
  * @returns 
  */
 export default function ProductScreen({ match }) {
-    const product = products.find((p) => p._id == match.params.id)
+
+    const [product, setProduct] = React.useState({});
+
+    useEffect(() =>{
+        let reqUrl = URL+"/"+match.
+        axios.get(URL).then(response=>setProduct(response)) 
+    })
+
     return (
         <div>
            <Link to="/" className="btn btn-lite my-3">Go</Link> 

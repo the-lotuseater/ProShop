@@ -12,6 +12,7 @@ import { Link } from 'react-router-dom';
  * @returns 
  */
 export default function Product({ product }){
+    
     return(
         <Card className="Card" rounded>
             Product

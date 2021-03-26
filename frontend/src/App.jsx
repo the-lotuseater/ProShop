@@ -12,14 +12,16 @@ import ProductScreen from './screens/ProductScreen';
 export default function App() {
   return (
     <div className="App">
-     <Header></Header> 
-       <main className="">
-         <Container>
-            <Route path='/' component={HomeScreen} exact></Route>
-            <Route path='/product/:id' component={ProductScreen} exact></Route>
-         </Container>
-       </main>
-       <Footer></Footer>
+      <Router>
+        <Header></Header> 
+          <main className="">
+            <Container>
+                <Route path='/' component={HomeScreen} exact></Route>
+                <Route path='/product/:id' component={ProductScreen} exact></Route>
+            </Container>
+          </main>
+          <Footer></Footer>
+      </Router>
     </div>
   );
 }

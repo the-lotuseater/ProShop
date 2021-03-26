@@ -8,13 +8,25 @@ from rest_framework.response import Response
 
 @api_view(['GET'])
 def getRoutes(request):
-    route = [
+    routes = [
         'api/products',
         'api/products/<id>/',
         'api/products/<id>/reviews',
         'api/products/upload'
     ]
-    return Response('Hello',safe=False)
+    return Response(routes)
     
+
+@api_view(['GET'])
 def getProducts(request):
-    return JsonResponse('products', safe=False)
+    return Response(products)
+
+@api_view(['GET'])
+def getProduct(request, id):
+    matchedProduct={}
+    for product in products:
+        if product['_id']==id:
+            matchedProduct=product
+            break
+
+    return Response(matchedProduct)

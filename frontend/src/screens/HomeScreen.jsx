@@ -1,9 +1,22 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Row, Col} from 'react-bootstrap';
 import Footer from '../components/Footer';
 import Products from '../components/Products';
+import axios from 'axios'
+import URL from '../contants/api.constants';
 
-export default function HomeScreen() {
+
+/**
+ * Use effect is triggered everytime the components loads or when one of the state properties is updated. We can select either of the cases
+ * by setting the element to an empty array.
+ */
+export default function HomeScreen()  {
+    const [products, setProducts] = useState([]);
+
+    useEffect(()=>{
+        axios.get('URL/api/products').then(response=>{setProducts(response)});
+    },[])
+
     return (
         <div>
             <h1>Latest Products</h1> 
