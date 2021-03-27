@@ -1,17 +1,16 @@
 import logo from './logo.svg';
 import Header from './components/Header'
 import Footer from './components/Footer'
+import HomeScreen from './screens/HomeScreen'
 import {Container} from 'react-bootstrap'
 
 export default function App() {
   return (
     <div>
       <Header></Header>
-      <main>
+      <main className="py-5">
         <Container>
-          <h1>
-            Hello
-          </h1>
+          <HomeScreen></HomeScreen>
         </Container>
       </main>
       <Footer></Footer>
