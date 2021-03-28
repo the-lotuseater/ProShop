@@ -1,6 +1,9 @@
 import React from 'react'
 import {Container, Row, Col} from 'react-bootstrap'
 
+/**
+ * TODO: Align footer text to center
+ */
 export default function Footer() {
     return (
             <footer>
