@@ -29,7 +29,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
+# Additions for projects are corsheaders, rest_framework, and a pointer to app config.
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',

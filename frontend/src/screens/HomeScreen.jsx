@@ -1,12 +1,22 @@
-import React from 'react'
-import products from '../products'
+import React, {useEffect, useState} from 'react'
+//import products from '../products'
 import {Col, Row} from 'react-bootstrap'
 import Product from '../components/Product'
+import axios from 'axios'
+import PRODUCTS_API from '../constants/api.constants'
 /**
- * Bootstrap Grid system is divided into 12 columns 
+ * INFO: Bootstrap Grid system is divided into 12 columns 
  * @returns 
  */
 export default function HomeScreen() {
+    const [products, setProducts] = React.useState([])
+
+
+    useEffect(() => {
+        axios.get(PRODUCTS_API).then((response)=>{setProducts(response.data)});
+    }, [])
+    
+
     return (
         <div>
             <h1>Latest Products</h1>

@@ -1,24 +1,32 @@
-import React from 'react'
+import React,{useEffect, useState} from 'react'
 import {Link} from 'react-router-dom'
 import {Row, Col, Image, ListGroup, Button, Card} from 'react-bootstrap'
 import products from '../products'
 import Rating from '../components/Rating'
+import PRODUCTS_API from '../constants/api.constants'
+import axios from 'axios'
 
 export default function ProductScreen({match}) {
-     const product = products.find((p)=> p._id == match.params.id)
-
+    const [product, setProduct] = React.useState({})
 
     const addItemToCart = () =>{
         console.log(product)
     } 
 
+    useEffect(()=>{
+        console.log(PRODUCTS_API)
+        const reqUrl = PRODUCTS_API+match.params.id
+        axios.get(reqUrl).then((response)=>{setProduct(response.data)})
+    },[])
+
     return (
         <div>
+            <Link to="/">
                 <Button className="btn btn-light">
-                    <Link to="/">
-                        <i className="fas fa-angle-left fa-5x"></i>
-                    </Link>
+                    <i className="fas fa-angle-left fa-5x"></i>
                 </Button>
+            </Link>
+
             <Row>
                 <Col md={6}>
                     <Image src={product.image} alt={product.name} fluid></Image>
