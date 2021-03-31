@@ -1,12 +1,11 @@
 from django.urls import path;
-from . import views;
+from . import views
 
 '''
-File to mention all url paths for application. 
-This is a URL routing system.
+This the custom url routing file which is used by django to route requests for this application. Think of this as your Rest Controller from Spring Boot.
 '''
 urlpatterns = [
-    path('',views.getRoutes, name='routes'),
-    path('products/', views.getProducts, name='products'),
-    path('products/<str:id>', views.getProduct, name='product')
+    path('', views.getRoutes, name="routes"),
+    path('products/', views.getProducts, name="products"),
+    path('products/<productKey>', views.getProduct, name="product"),
 ]

@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class ProshopserviceConfig(AppConfig):
-    name = 'ProShopService'
+class BaseConfig(AppConfig):
+    name = 'base'
