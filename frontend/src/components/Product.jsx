@@ -2,6 +2,7 @@ import React from 'react'
 import { Card } from 'react-bootstrap'
 import Rating from './Rating'
 import {Link} from 'react-router-dom'
+import PRODUCTS_API from '../constants/api.constants'
 
 /**
  * The advantage of using a Link instead of an href is that Link loads a new component into the same page instead of opening a new page and 
@@ -11,7 +12,7 @@ import {Link} from 'react-router-dom'
 export default function Product({product}) {
     return (
         <Card className="my-3 p-3 rounded">
-            <Link to={`/product/${product._id}`}>
+            <Link to={`${PRODUCTS_API}/${product._id}`}>
                 <Card.Img src={product.image}></Card.Img>
             </Link>
 
@@ -26,7 +27,7 @@ export default function Product({product}) {
             <Card.Text as="div">
                 <div className="my-3">
                     <Rating value={product.rating} text={`${product.numReviews} reviews`} color={'#ffbf00'}></Rating>
-                    </div>
+                </div>
             </Card.Text>
 
             <Card.Text as ="h3">

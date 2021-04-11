@@ -7,5 +7,5 @@ This the custom url routing file which is used by django to route requests for t
 urlpatterns = [
     path('', views.getRoutes, name="routes"),
     path('products/', views.getProducts, name="products"),
-    path('products/<productKey>', views.getProduct, name="product"),
+    path('products/<pk>', views.getProduct, name="product"),
 ]

@@ -1,3 +1,6 @@
+/**
+ * Just dummy data used for the frontend.
+ */
 const products = [
     {
       '_id': '1',
