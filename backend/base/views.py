@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.http import JsonResponse
-from .products import products
 from rest_framework.decorators import api_view 
 from rest_framework.response import Response
 from .serializers import ProductSerializer
@@ -36,10 +35,11 @@ def getProducts(request):
 
 #API to retrive and return a product to the controller
 @api_view(['GET'])
-def getProduct(request, productKey):
-    productExists = Product.objects.exists(_id=productKey)
-    if(productExists):
-        product = Product.objects.get(_id=productKey)
+def getProduct(request, pk: int):
+    productExists = Product.objects.filter(_id=pk).count()==1
+    print("Product with pk "+pk+" exists.")
+    if productExists:
+        product = Product.objects.get(_id=pk)
         serializer = ProductSerializer(product, many=False)
         return Response(serializer.data)
     else:

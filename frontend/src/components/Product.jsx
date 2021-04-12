@@ -2,6 +2,7 @@ import React from 'react'
 import { Card } from 'react-bootstrap'
 import Rating from './Rating'
 import {Link} from 'react-router-dom'
+import {PRODUCTS_API} from '../constants/api.constants'
 
 /**
  * The advantage of using a Link instead of an href is that Link loads a new component into the same page instead of opening a new page and 

@@ -13,7 +13,7 @@ export default function HomeScreen() {
 
 
     useEffect(() => {
-        axios.get(PRODUCTS_API).then((response)=>{setProducts(response.data)});
+        axios.get(`${PRODUCTS_API}/`).then((response)=>{setProducts(response.data)});
     }, [])
     
 

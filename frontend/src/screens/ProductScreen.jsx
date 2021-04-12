@@ -14,9 +14,8 @@ export default function ProductScreen({match}) {
     } 
 
     useEffect(()=>{
-        console.log(PRODUCTS_API)
-        const reqUrl = PRODUCTS_API+match.params.id
-        axios.get(reqUrl).then((response)=>{setProduct(response.data)})
+        axios.get(`${PRODUCTS_API}/${match.params.id}`).then((response)=>{setProduct(response.data)})
+        console.log(product)
     },[])
 
     return (
