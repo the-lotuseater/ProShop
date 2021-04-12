@@ -1,20 +1,22 @@
 import React,{useEffect, useState} from 'react'
 import {Link} from 'react-router-dom'
 import {Row, Col, Image, ListGroup, Button, Card} from 'react-bootstrap'
-import products from '../products'
 import Rating from '../components/Rating'
 import PRODUCTS_API from '../constants/api.constants'
-import axios from 'axios'
+import { useDispatch, useSelector } from 'react-redux'
+import {listProductDetails} from '../actions/ProductActions';
 
 export default function ProductScreen({match}) {
-    const [product, setProduct] = React.useState({})
+    const dispatch = useDispatch()
+    const productDetails = useSelector(state => state.productDetails)
+    const {loading, error, product } = productDetails
 
     const addItemToCart = () =>{
         console.log(product)
     } 
 
     useEffect(()=>{
-        axios.get(`${PRODUCTS_API}/${match.params.id}`).then((response)=>{setProduct(response.data)})
+        dispatch(listProductDetails(match.params.id))
         console.log(product)
     },[])
 
