@@ -11,34 +11,49 @@ import {
 
 
 export const productListReducer = (state = { products: [] }, action) => {
+    console.log("Entering ProductReducers.productListReducer.")
+    let response =null;
     switch (action.type) {
         case PRODUCT_LIST_REQUEST:
             return { loading: true, products: [] }
 
         case PRODUCT_LIST_SUCCESS:
-            return {
+            response ={
                 loading: false,
                 products: action.payload
             }
+            console.log("Exiting product reducer. Returning response "+response)
+            return response
 
         case PRODUCT_LIST_FAIL:
-            return { loading: false, error: action.payload }
+            response = { loading: false, error: action.payload }
+            console.log("Exiting product reducer. Returning response "+JSON.stringify(response))
+            return response
 
         default:
+            console.log("Exiting product reducer. Returning response "+JSON.stringify(response))
             return state
     }
 }
 
 export const productDetailsReducer = (state = { product: { reviews: [] } }, action) => {
+    console.log("Entering Product Details.")
+    let response = null;
     switch (action.type) {
         case PRODUCT_DETAILS_REQUEST:
-            return { loading: true, ...state }
+            response = { loading: true, ...state }
+            console.log("Exiting product details reducer. Returning response "+response)
+            return response
 
         case PRODUCT_DETAILS_SUCCESS:
-            return { loading: false, product: action.payload }
+            response ={ loading: false, product: action.payload }
+            console.log("Exiting product details reducer. Returning response "+response)
+            return response
 
         case PRODUCT_DETAILS_FAIL:
-            return { loading: false, error: action.payload }
+            response = { loading: false, error: action.payload }
+            console.log("Exiting product details reducer. Returning response "+response)
+            return response
 
         default:
             return state
